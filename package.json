@@ -1,0 +1,25 @@
+{
+  "name": "hp_s22",
+  "version": "1.0.0",
+  "description": "repo for hack reaktor structure prepartory study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oilsinwater/hp_s22.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "Philliph Drummond",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oilsinwater/hp_s22/issues"
+  },
+  "homepage": "https://github.com/oilsinwater/hp_s22#readme",
+  "devDependencies": {
+    "jasmine": "^3.1.0"
+  }
+}
