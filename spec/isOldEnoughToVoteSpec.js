@@ -9,3 +9,4 @@ describe("isOldEnoughToVote", function() {
     expect(isOldEnoughToVote(18)).toBe(true);
   });
 });
+

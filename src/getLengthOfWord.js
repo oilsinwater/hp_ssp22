@@ -5,4 +5,6 @@ var output = getLengthOfWord('some');
 console.log(output); // --> 4
  */
 
- 
+ const getLengthOfWord = (word) => {
+     return word.length;
+ };
