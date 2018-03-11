@@ -7,7 +7,8 @@ addProperty(myObj, 'myProperty');
 console.log(myObj.myProperty); // --> true
  */
 
-function addProperty (obj, key) {
 
- }
-
+var addProperty = (obj, key) => {
+    obj[key] = true;
+    return obj;
+}

@@ -13,3 +13,5 @@ console.log(output); // --> 'value'
  function getProperty (obj, name) {
         return obj.hasOwnProperty(name) ? obj.name : undefined;
     } // returns value if exists
+
+    

@@ -12,3 +12,5 @@ describe("addProperty", function() {
     expect(testObj.testKey).toBe(true);
   });
 });
+
+
