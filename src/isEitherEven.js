@@ -7,6 +7,6 @@ var output = isEitherEven(1, 4);
 console.log(output); // --> true
  */
 
- var isEitherEven = (num1, num2) => {
+ const isEitherEven = (num1, num2) => {
      return num2 % 2 === 0 || num1 % 2 === 0 ? true : false;
  }
