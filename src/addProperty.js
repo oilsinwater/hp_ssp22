@@ -9,6 +9,6 @@ console.log(myObj.myProperty); // --> true
 
 
 var addProperty = (obj, key) => {
-    obj[key] = true;
-    return obj;
-}
+  obj[key] = true;
+  return obj;
+};
