@@ -10,6 +10,7 @@ Notes:
 
  */
 
- function getNthElement(arr, n) {
-     return arr.length  === 0 ? undefined : arr[n];
- }
+ var getNthElement = (arr, n) => {
+   return arr.length === 0 ? undefined : arr[n];
+ };
+ 
