@@ -10,9 +10,20 @@
 // var output = countAllCharacters('banana');
 // console.log(output); // --> {b: 1, a: 3, n: 2}
 
+
 function countAllCharacters(str) {
-  let characters = {};
-  JSON.parse(str, function(char) { 
-      String.split(str).length - 1
-  });
+  let char = {};
+
+  for (let key in str) {
+    if (!char.hasOwnProperty(str[key])) {
+      char[str[key]] = 1;
+    } else {
+      char[str[key]] += 1;
+    }
+  }
+  return char;
 }
+
+const output = countAllCharacters('balamacab'); // { b: 2, a: 4, l: 1, m: 1, c: 1 }
+console.log(output);
+
