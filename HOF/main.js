@@ -1,6 +1,7 @@
 // ~ HOF Basic requirements ~ 
-const numbers = [1, 2, 3, 4, 5];
+const numbers = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 const names = [ 'June Douglas', 'April Hwang', 'Jack Marceo', 'Lee Black', 'Jo Te', 'Bobbie Blue Bland', 'Cater Mei', 'Amparo Torrez']
+const words = [ 'the', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog' ]
 
 // *** Rewrite Functions ***
 
@@ -310,6 +311,17 @@ function uppercaseAll(arr) {
 console.log(uppercaseAll(names));
 // "hello, world".toUpperCase(); // => "HELLO, WORLD"
 
+function lowercaseAll(arr) {
+  let lowerCase = [];
+  each (arr, function(str) {
+    lowerCase.push(str.toLowerCase());
+  });
+  return lowerCase;
+}
+console.log(lowercaseAll(names));
+// "HelLo", "WorLD".toLowerCase(); // => "hello, world"
+
+
 //4. You should at this point notice a similarity between all of the above functions, as well as the cubeAll
 // function from the warmup. These functions all define what we call mappings; that is, they map from one value to another.
 
@@ -341,3 +353,183 @@ function map(arr, f) {
 }
 
 console.log(map([1,2,3,4], function(x){return x * 2;}));
+
+//6. Complete the invocations of map below to produce the desired output (you'll need to replace ??? with a function):
+map(["hello", "world"], function(x) {
+  return x.toUpperCase();
+}); // => ["HELLO", "WORLD"]
+
+map(["HelLo", "WorLD"], function(x) {
+  return x.toLowerCase();
+}); // => ["hello", "world"]
+
+map(["the", "quick", "brown", "fox", "jumped"], function(x) {
+  return x.length}); // => [3, 5, 5, 3, 6]
+
+var people = [
+  { name: "Alyssa P. Hacker", age: 26 },
+  { name: "Ben Bitdiddle", age: 34 },
+  { name: "Eva Lu Ator", age: 19 },
+  { name: "Lem E. Tweakit", age: 40 }
+];
+
+map(people, function (x) {
+  return x.name;
+}); // => ["Alyssa P. Hacker", "Ben Bitdiddle", "Eva Lu Ator", "Lem E. Tweakit"]
+
+map(people, function(x) {
+  return x.name + ' is ' + x.age;
+});
+// => ["Alyssa P. Hacker is 26", "Ben Bitdiddle is 34", "Eva Lu Ator is 19", "Lem E. Tweakit is 40"]
+
+
+// ** Finding Patterns: Filtering **
+
+// 1. Write a function called evens that takes an array of numbers as a parameter,
+// and returns an array of only the even numbers in the parameter.
+
+function evens(arr) {
+    let result = [];
+    each(arr, function(num) {
+      num % 2 === 0 ? result.push(num) : undefined;
+    });
+    return result;
+  }
+
+console.log(evens(numbers));
+
+// 2. Write a function called multiplesOfThree that takes an array of numbers as a
+// parameter, and returns an array of only the numbers that are multiples of three.
+
+function multiplesOfThree(arr) {
+  let result = [];
+  each(arr, function(num) {
+      num % 3 === 0 ? result.push(num) : undefined;
+  });
+  return result;
+}
+
+console.log(multiplesOfThree(numbers));
+
+
+// 3. Write a function called positives that takes an array of numbers 
+// as a parameter, and returns an array of only the numbers that are positive.
+
+function positives(arr) {
+  let result = [];
+  each(arr, function(num) {
+    Math.sign(num) ? result.push(num) : undefined;
+  })
+  return result;
+}
+console.log(positives(numbers));
+
+// 4. Write a function called evenLength that takes an array 
+// of strings and returns an array of only the strings with an even length.
+
+function evenLength(arr) {
+  let result = [];
+  each(arr, function(word) {
+    if(word.length % 2 === 0) {
+      result.push(word);
+    }
+  });
+  return result;
+}
+
+console.log(evenLength(words));
+
+// 5. At this point, you should notice a pattern; write a function called filter 
+// that takes two parameters: an array and a function that, when invoked with an 
+// argument, will return true or false. filter should return a new array of only 
+// the elements for which the function returns true:
+
+// function filter(array, f) {
+//   // ...
+// }
+// filter([1, 2, 3, 4], function(x) {
+//   return x % 2 === 0; // x is even?
+// }); // => [2, 4]
+
+function filter(arr, f) {
+   let result = [];
+   each(arr, function(num) {
+    if(f(num)) {
+      result.push(num);
+    };
+  });
+  return result;
+}
+
+
+filter([1, 2, 3, 4], function(x) {
+  return x % 2 === 0; // x is even?
+}); // => [2, 4]
+
+// 6. Use filter to write/rewrite:
+// * odds
+// * positives
+// * negatives
+// * evenLength
+// * largerThanSix (given an array of numbers, returns those larger than 6)
+
+// * odd
+function odd(arr) {
+  return filter(arr, function(x) {
+    return x % 2 !== 0;
+  });
+}
+console.log(odd(numbers));
+
+// * positive
+function positive(arr) {
+  return filter(arr, function(x) {
+    return Math.sign(x);
+  })
+}
+console.log(positive(numbers));
+
+// * negatives
+function negatives(arr) {
+  return filter(arr, function(x) {
+    return x <= 0;
+  });
+}
+console.log(negatives(numbers));
+
+// * evenLengths
+function evenLengths(arr) {
+  return filter(arr, function(x) {
+    return x.length % 2 === 0;
+  });
+}
+console.log(evenLengths(words));
+
+// * largerThanSix
+function largerThanSix(arr) {
+  return filter(arr, function(x) {
+    return x > 6;
+  });
+}
+console.log(largerThanSix(numbers));
+
+// 7. Using filter, write a function startsWithChar that accepts two parameters:
+// an array of strings, and a character (e.g. "a"), and returns an array of only
+// the strings that start with that character:
+// function startsWithChar(strings, character) {
+//   // ...
+// }
+// var words = "the quick brown fox jumps over the lazy dog".split(" ");
+// startsWithChar(words, "q"); // => ["quick"]
+// startsWithChar(words, "t"); // => ["the", "the"]
+
+function startsWithChar(arr, character) {
+  return filter(arr, function(x) {
+    return x[0] === character;
+  });
+}
+var phrase = "the quick brown fox jumps over the lazy dog".split(" ");
+startsWithChar(phrase, "q"); // => ["quick"]
+console.log(startsWithChar(phrase, 'q'));
+startsWithChar(phrase, "t"); // => ["the", "the"]
+console.log(startsWithChar(phrase, "t"));
