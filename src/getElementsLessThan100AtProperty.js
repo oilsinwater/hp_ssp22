@@ -22,7 +22,9 @@
 //   /* END SOLUTION */
 // }
 
-
+const obj = {
+    key: [ 1000, 20, 50, 500 ]
+};
 
 
 function getElementsLessThan100AtProperty(obj, key) {
@@ -34,6 +36,9 @@ function getElementsLessThan100AtProperty(obj, key) {
     }
     return lessThan100Property;
 }
+
+const output = getElementsLessThan100AtProperty(obj, 'key');
+console.log(output);
 
 // const getElementsLessThan100AtProperty = (obj, key) => {
 //     let lessThan100Property = [];
